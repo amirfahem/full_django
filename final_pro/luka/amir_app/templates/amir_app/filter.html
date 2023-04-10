@@ -1,0 +1,18 @@
+
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <h1>{{key}}</h1>
+    {% for product in another_var %}
+    <h3>{{product.type}}</h3>
+    <img  src="{{product.image.url}}" >
+
+    {% endfor %}
+</body>
+</html>

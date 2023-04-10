@@ -1,0 +1,8 @@
+{% load static %}
+    <h1>{{key}}</h1>
+    {% for product in fourth_filter%}
+    <h3>{{product.model}}</h3>
+    <p>{{product.size_shose}}</p>
+    <img  src="{{product.image.url}}" >
+    <option value="numbers">{{ product.size_shose }}</option>
+    {% endfor %}

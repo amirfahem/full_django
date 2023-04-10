@@ -1,0 +1,8 @@
+
+{% load static %}
+{% for item in object_list %}
+<a  href="{{item.get_absolute_url}}">{{ item.model }}</a> 
+{{ item.model }}
+
+ {% endfor %}
+

@@ -1,0 +1,76 @@
+
+ {% load static %}
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <!--google-fonts-->
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <!--style-sheets-->
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+   <!-- <link rel="stylesheet" href="static/styles.css"> -->
+   <!--font awsome-->
+   <script src="https://kit.fontawesome.com/541d3e181e.js" crossorigin="anonymous"></script>
+   <!--bootstrap scripts-->
+   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+   <link rel="stylesheet" href="{% static 'danel/styles.css' %}">
+</head>
+
+ <body>
+    <a href="{% url 'list_view'  %}"><button type="button" class="btn btn-primary">Main Page</button></a>
+    <a href="{% url 'dom_tag_view' %}?modern=cool "><button type="button" class="btn btn-primary">Cool</button></a>
+    <a href="{% url 'dom_tag_view' %}?modern=Luxury "><button type="button" class="btn btn-primary">Luxury</button></a>
+<br>
+<br>
+    <h1>Thease are our shoes</h1>
+    <br>
+    <br>
+    <div class="container-fluid">
+      <div class="row  row-cols-sm-4 row-cols-md-4 ">
+        {% for shoe in shoes %}
+        <div class="col col-lg-4 col-md-6  cards">
+         <div class="card">
+          {% if shoe.image.url %}
+           <img class="card-img" src="{{ shoe.image.url }}" role="image"></img>
+           {% else %}
+           <h3>No image </h3>
+           {% endif %}
+           <div class="card-body">
+           <h5 class="card-title">{{ shoe.model }}</h5>
+           <a href="{{shoe.get_absolute_url}}" class="btn btn-primary">See details</a>
+           </div>
+         </div>
+        </div>
+         {% endfor %}
+        </div>
+        </div>
+        <br>
+        <h1>These are our clothes </h1>
+        <div class="container-fluid">
+            <div class="row  row-cols-sm-4 row-cols-md-4 ">   
+                  {% for product in otherproducts %}
+                  <div class="col col-lg-4 col-md-6  cards">
+                 <div class="card" >
+                    {% if product.image.url %}
+                    <img class="card-img" src="{{ product.image.url }}" role="image"></img>
+                    {% else %}
+                    <h3>No image </h3>
+                    {% endif %}
+                    <div class="card-body">
+                    <h5 class="card-title">{{product.title}}</h5>
+                    <a  href="{{product.get_absolute_url}}" class="btn btn-primary">See details</a>
+                    </div>
+                  </div>
+                </div>
+                {% endfor %}
+                </div>
+      </div>
+  
+<script type="text/javascript" src="{% static 'danel/index.js' %}" async></script>
+</html> 
+</body>

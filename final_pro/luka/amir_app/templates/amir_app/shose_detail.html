@@ -1,0 +1,21 @@
+{%load static%}
+
+<h1>{{object.model}}</h1>
+<h3>{{object.brand_shose}}</h3>
+<span>price {{size_shose}}</span>
+<img  src="{{object.image.url}}" >
+<label for="size">Size:</label>
+<select name="{{ size_shose }}}" id="size">
+    <option value="xl">41</option>
+    <option value="2xl">42</option>
+    <option value="3xl">43</option>
+    <option value="4xl">44</option>
+    <option value="5xl">45</option>
+ </select>
+ <label for="color">Color:</label>
+<select name="color" id="color">
+    <option value="red">red</option>
+    <option value="white">white</option>
+    <option value="black">black</option>
+    <option value="blue">blue</option>>
+</select>
